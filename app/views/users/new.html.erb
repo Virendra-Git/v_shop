@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <div class="main">    
+    <input type="checkbox" id="chk" aria-hidden="true">
+
+      <div class="signup">
+        <%= form_with model: @user do |f| %>
+          <label for="chk" aria-hidden="true">Sign up</label>
+          <%= f.text_field :name, placeholder: true %>
+          <%= f.text_field :email, placeholder: true %>
+          <%= f.text_field :mobile, placeholder: true %>
+          <%= f.text_field :password, placeholder: true %>
+          <button><% f.submit %>Sign up</button>
+        <% end %>
+      </div>
+
+      <div class="login">
+        <%= form_with url: "/users/login", method: :post do |f| %>
+          <label for="chk" aria-hidden="true">Login</label>
+          <%= f.text_field :email, placeholder: true %>
+          <%= f.text_field :password, placeholder: true %>
+          <button><% f.submit %>Login</button>
+        </form>
+        <% end %>
+      </div>
+  </div>
+</body>
+</html>
